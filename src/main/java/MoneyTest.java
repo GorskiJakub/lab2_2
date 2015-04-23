@@ -20,4 +20,19 @@ import pl.com.bottega.ecommerce.sharedkernel.Money;
  	
  			assertThat(m1, is(not(equalTo(m2))));
  		}
+ 		
+ 			@Test
+ 			public void test_addMoneyIfTrue() {
+ 				Money m1 = new Money(5.00, "USD");
+ 				Money m2 = new Money(3.00, "USD");
+ 				Money expected = new Money(8, "USD");
+ 		
+ 				assertThat(m1.add(m2), is(equalTo(expected)));
+ 			}
+ 				@Test (expected = IllegalArgumentException.class)
+ 				public void test_addDifferentCurrencies_shouldBeException() {
+ 					Money m1 = new Money(5.00, "USD");
+ 					Money m2 = new Money(3.00, "PLN");
+ 					m1.add(m2);		
+ 				}
  }
