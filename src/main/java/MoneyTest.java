@@ -13,4 +13,11 @@ import pl.com.bottega.ecommerce.sharedkernel.Money;
 		assertThat(m1, is(equalTo(m2)));
  	}
  
+ 		@Test
+ 		public void test_ifBothAreNotEquals() {
+ 			Money m1 = new Money(5.00, "USD");
+ 			Money m2 = new Money(3.00, "USD");
+ 	
+ 			assertThat(m1, is(not(equalTo(m2))));
+ 		}
  }
