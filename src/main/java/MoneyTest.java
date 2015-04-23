@@ -35,4 +35,22 @@ import pl.com.bottega.ecommerce.sharedkernel.Money;
  					Money m2 = new Money(3.00, "PLN");
  					m1.add(m2);		
  				}
+ 				
+ 					@Test
+ 					public void test_multiplyByIfTrue() {
+ 						Money m = new Money(5.00, "USD");
+ 						double number = 3.00;
+ 						double expected = 15.00;
+ 						
+ 						assertThat(m.multiplyBy(number), is(new Money(expected, "USD")));	
+ 					}
+ 					
+ 					@Test
+ 					public void test_multiplyByIfDifferentCurrency_shouldBeFalse() {
+ 						Money m = new Money(5.00, "USD");
+ 						double number = 3.00;
+ 						double expected = 15.00;
+ 						
+ 						assertThat(m.multiplyBy(number), is(not (new Money(expected, "EUR"))));		
+ 					}
  }
