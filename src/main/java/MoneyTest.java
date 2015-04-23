@@ -68,4 +68,20 @@ import pl.com.bottega.ecommerce.sharedkernel.Money;
  	 					Money m2 = new Money(3.00, "PLN");
  	 					m1.add(m2);		
  	 				}
+ 	 				
+ 	 			 	@Test
+ 	 				public void test_ifFirstValueIsGreaterThenSecond_ShouldBeTrue() {
+ 	 					Money m1 = new Money(5.00, "USD");
+ 	 					Money m2 = new Money(3.00, "USD");
+
+ 	 					assertThat(m1.greaterThan(m2), is(true));
+ 	 			 	}
+ 	 			 	
+ 	 			 	@Test
+ 	 				public void test_ifFirstValueIsNotGreaterThenSecond_ShouldBeFalse() {
+ 	 					Money m1 = new Money(3.00, "USD");
+ 	 					Money m2 = new Money(5.00, "USD");
+
+ 	 					assertThat(m1.greaterThan(m2), is(false));
+ 	 			 	}
  }
